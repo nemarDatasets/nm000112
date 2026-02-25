@@ -1,0 +1,64 @@
+{
+    "onset": {
+        "Description": "Onset (in seconds) of the event from the beginning of the first datapoint. Negative onsets account for events before the first stored data point.",
+        "Units": "s"
+    },
+    "duration": {
+        "Description": "Duration of the event in seconds from onset. Must be zero, positive, or 'n/a' if unavailable. A zero value indicates an impulse event. ",
+        "Units": "s"
+    },
+    "sample": {
+        "Description": "The event onset time in number of sampling points.First sample is 0."
+    },
+    "value": {
+        "Description": "The event code (also known as trigger code or event ID) associated with the event."
+    },
+    "trial_type": {
+        "Description": "The type, category, or name of the event."
+    },
+    "emotion_label": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "binary_label": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "video_index": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Joy": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Tenderness": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Inspiration": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Amusement": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Anger": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Disgust": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Fear": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Sadness": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Arousal": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Valence": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Familiarity": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    },
+    "Liking": {
+        "Description": "Additional metadata stored in raw.annotations.extras."
+    }
+}

@@ -1,0 +1,55 @@
+**Introduction:**
+The Finer-grained Affective Computing EEG Dataset (FACED) contains scalp EEG recordings from 123 healthy participants who watched 28 emotion-eliciting video clips designed to evoke nine different emotion categories. The dataset includes four negative emotions (anger, fear, disgust, sadness) from Ekman's basic emotions and four positive emotions (amusement, inspiration, joy, tenderness) selected based on recent psychological and neuroscience progress and application needs. Participants provided detailed self-reported emotion ratings on 12 dimensions: eight emotions, arousal, valence, liking, and familiarity. The dataset is designed to facilitate cross-subject affective computing research and development of EEG-based emotion recognition algorithms for real-world applications.
+
+**Overview of the experiment:**
+Participants (123 subjects, 75 female, ages 17-38, mean=23.2 years) were seated 60 cm from a 22-inch LCD monitor in a regular office environment. Each trial consisted of: (1) a 5-second fixation cross, (2) a video clip of varying length (typically 30-60 seconds), and (3) subjective emotional rating on 12 items (anger, fear, disgust, sadness, amusement, inspiration, joy, tenderness, valence, arousal, liking, familiarity) on a continuous 0-7 scale, followed by at least 30 seconds rest. Video clips were presented in blocks: three positive blocks, three negative blocks, and one neutral block, with 20 arithmetic problems between blocks to minimize carryover effects. The 28 video clips were designed to target nine emotion categories, with randomized presentation order across participants. EEG was recorded using a 32-channel biosignal recording system sampled at either 1000 Hz (92 subjects) or 250 Hz (31 subjects), with channels positioned according to the International 10-20 system. Signal units were recorded in either Volts or microVolts depending on the hardware configuration used.
+
+**Video stimulus information:**
+The dataset includes 28 video clips designed to elicit nine emotion categories (Trigger values 1–28):
+- Anger (Videos 1-3): Durations 73-81 seconds, negative valence
+- Disgust (Videos 4-6): Durations 69-91 seconds, negative valence
+- Fear (Videos 7-9): Durations 56-106 seconds, negative valence
+- Sadness (Videos 10-12): Durations 45-82 seconds, negative valence
+- Neutral (Videos 13-16): Durations 35-43 seconds, neutral valence
+- Amusement (Videos 17-19): Durations 56-73 seconds, positive valence
+- Inspiration (Videos 20-22): Durations 76-129 seconds, positive valence
+- Joy (Videos 23-25): Durations 34-68 seconds, positive valence
+- Tenderness (Videos 26-28): Durations 54-77 seconds, positive valence
+
+Metadata for each video (duration, source film, source database, valence, targeted emotion) is read from Stimuli_info.xlsx.
+
+**Event markers (from evt.bdf annotations):**
+- 100: Task/block start
+- 101: Video onset
+- 102: Video offset
+- 1–28: Video index (appears just before 101, used to link to stimulus metadata)
+- 201/202: Block boundary markers
+- "Start Impedance" / "Stop Impedance": Technical markers (ignored)
+
+The conversion script reads evt.bdf annotations for each subject, parses video presentation spans (from video index + 101 to 102), and creates MNE Annotations with the source film title (video_title) as description. These annotations are exported to BIDS events.tsv with extra columns:
+- emotion_label: targeted emotion category (Anger, Disgust, Fear, Sadness, Neutral, Amusement, Inspiration, Joy, Tenderness)
+- binary_label: positive/negative/neutral classification
+- video_index: 1–28
+- Self-reported ratings (Joy, Tenderness, Inspiration, Amusement, Anger, Disgust, Fear, Sadness, Arousal, Valence, Familiarity, Liking)
+
+**Description of the preprocessing if any:**
+Raw BDF files from the biosignal recording system have been converted to BIDS format. Channel names are standardized to match the International 10-20 nomenclature. Subjects have been assigned numeric IDs (sub-000 through sub-122) corresponding to their original subject designations in the dataset. Recording dates have been set to a default value (2023-01-01) due to privacy considerations, while time relationships between files are preserved. Subject demographic information (age, sex) has been extracted from the Recording_info.csv file and properly formatted for BIDS.
+
+Stimulus timing information from the evt.bdf event files has been parsed and enriched with metadata from Stimuli_info.xlsx. Each video presentation is annotated with the targeted emotion category (Anger, Disgust, Fear, Sadness, Neutral, Amusement, Inspiration, Joy, Tenderness) and includes self-reported ratings from After_remarks.mat when available.
+
+**Citation:**
+When using this dataset, please cite:
+
+1. Liu, Y., Sourina, O., & Nguyen, M. K. (2023). Finer-grained Affective Computing EEG Dataset. Scientific Data, 10(1), 809. https://doi.org/10.1038/s41597-023-02650-w
+
+2. Synapse Platform: https://www.synapse.org/#!Synapse:syn50614194
+
+3. The dataset is available at the Synapse platform repository.
+
+**Data curators:**
+Pierre Guetschel (BIDS conversion)
+
+Original data collection team:
+- Yisi Liu (Nanyang Technological University)
+- Olga Sourina (Nanyang Technological University)
+- Minh Khoa Nguyen (Nanyang Technological University)
