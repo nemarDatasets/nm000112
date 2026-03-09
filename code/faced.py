@@ -457,6 +457,10 @@ def main(
     source_root = Path(source_root).expanduser()
     bids_root = Path(bids_root).expanduser()
 
+    if finalize_only:
+        _finalize_dataset(bids_root, overwrite=overwrite)
+        return
+
     # Validate Stimuli_info.xlsx and Task_event.xlsx alignment before processing
     aligned_indices = _validate_video_index_alignment(source_root)
     print(f"Validation successful. video_index set: {sorted(aligned_indices)}")
@@ -500,11 +504,7 @@ def main(
     for _, _, bids_path in records:
         bids_path = bids_path.update(root=bids_root)
 
-    if finalize_only:
-        _finalize_dataset(bids_root, overwrite=overwrite)
-        return
-
-    # Sanity check: no duplicate BIDS paths
+   # Sanity check: no duplicate BIDS paths
     bids_paths = [bids_path.fpath for _, _, bids_path in records]
     assert len(bids_paths) == len(set(bids_paths)), "Duplicate BIDS paths found"
 
@@ -586,8 +586,10 @@ def _finalize_dataset(bids_root: Path, overwrite: bool = False):
         source_datasets=[
             {"DOI": "https://doi.org/10.1038/s41597-023-02650-w"},
         ],
-        authors=["Pierre Guetschel"],
+        authors=["Yisi Liu", "Olga Sourina", "Minh Khoa Nguyen"],
+        acknowledgements="Pierre Guetschel updated the data to BIDS format.",
         overwrite=overwrite,
+        data_license="CC-BY-4.0",  # source: https://www.synapse.org/TrustCenter:TermsOfService
     )
 
     # Remove macOS resource fork files that can break make_report
