@@ -1,49 +1,16 @@
 {
   "version": "2.0",
   "pipeline_stage": "validated",
+  "title": "FACED - Finer-grained Affective Computing EEG Dataset",
+  "description": "FACED is a comprehensive EEG dataset containing scalp recordings from 123 healthy participants viewing 28 emotion-eliciting video clips designed to evoke nine distinct emotion categories. Participants provided detailed self-reported ratings across 12 dimensions including eight emotion categories, arousal, valence, liking, and familiarity. The dataset facilitates cross-subject affective computing research and development of EEG-based emotion recognition algorithms for real-world applications.",
+  "methods_description": "EEG was recorded from 123 participants (75 female, ages 17-38) using a 32-channel biosignal recording system positioned according to the International 10-20 system, sampled at either 1000 Hz (92 subjects) or 250 Hz (31 subjects). Participants viewed 28 video clips (30-129 seconds duration) designed to target nine emotion categories (anger, disgust, fear, sadness, neutral, amusement, inspiration, joy, tenderness) presented in randomized blocks with arithmetic problems between blocks. After each video, participants rated their emotional experience on 12 continuous 0-7 scales.",
+  "license": "CC-BY-4.0",
+  "dataset_type": "derivative",
   "authors": {
     "Yisi Liu": {},
     "Olga Sourina": {},
     "Minh Khoa Nguyen": {}
   },
-  "related_identifiers": [
-    {
-      "identifier": "10.1038/s41597-023-02650-w",
-      "identifier_type": "DOI",
-      "relation_type": "References"
-    },
-    {
-      "identifier": "https://github.com/nemarDatasets/nm000112",
-      "identifier_type": "URL",
-      "relation_type": "IsDescribedBy"
-    },
-    {
-      "identifier": "https://nemar.org/dataexplorer/detail?dataset_id=nm000112",
-      "identifier_type": "URL",
-      "relation_type": "IsDescribedBy"
-    }
-  ],
-  "title": "FACED - Finer-grained Affective Computing EEG Dataset",
-  "license": "CC-BY-4.0",
-  "dataset_type": "derivative",
-  "resource_type_general": "Dataset",
-  "modalities": [
-    "eeg"
-  ],
-  "resource_type_specific": "EEG Dataset",
-  "sizes": [
-    "33.3 GB (747 files)"
-  ],
-  "formats": [
-    ".bdf",
-    ".json",
-    ".md",
-    ".py",
-    ".tsv",
-    ".yml"
-  ],
-  "description": "FACED is a comprehensive EEG dataset containing scalp recordings from 123 healthy participants viewing 28 emotion-eliciting video clips designed to evoke nine distinct emotion categories. Participants provided detailed self-reported ratings across 12 dimensions including eight emotions, arousal, valence, liking, and familiarity. The dataset facilitates cross-subject affective computing research and development of EEG-based emotion recognition algorithms for real-world applications.",
-  "methods_description": "EEG was recorded from 123 participants (75 female, ages 17-38) using a 32-channel biosignal recording system positioned according to the International 10-20 system, sampled at either 1000 Hz (92 subjects) or 250 Hz (31 subjects). Participants viewed 28 video clips (30-129 seconds duration) designed to target nine emotion categories (anger, disgust, fear, sadness, neutral, amusement, inspiration, joy, tenderness) presented in randomized blocks with arithmetic problems between blocks. After each video, participants rated their emotional experience on 12 continuous 0-7 scales.",
   "keywords": [
     {
       "term": "EEG"
@@ -64,5 +31,38 @@
       "term": "scalp electroencephalography"
     }
   ],
-  "source_hash": "38c44a1b4201fbda6cca155a0ceff2705055575ec2382ee72391b3dafa91a53d"
+  "related_identifiers": [
+    {
+      "identifier": "10.1038/s41597-023-02650-w",
+      "identifier_type": "DOI",
+      "relation_type": "References"
+    },
+    {
+      "identifier": "https://github.com/nemarDatasets/nm000112",
+      "identifier_type": "URL",
+      "relation_type": "IsDescribedBy"
+    },
+    {
+      "identifier": "https://nemar.org/dataexplorer/detail?dataset_id=nm000112",
+      "identifier_type": "URL",
+      "relation_type": "IsDescribedBy"
+    }
+  ],
+  "resource_type_general": "Dataset",
+  "resource_type_specific": "EEG Dataset",
+  "modalities": [
+    "eeg"
+  ],
+  "sizes": [
+    "33.3 GB (747 files)"
+  ],
+  "formats": [
+    ".bdf",
+    ".json",
+    ".md",
+    ".py",
+    ".tsv",
+    ".yml"
+  ],
+  "source_hash": "fd73138f234509ed44097611aa86301b3230695f9503cca561888a581c271a51"
 }
