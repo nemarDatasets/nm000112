@@ -54,7 +54,7 @@
     "eeg"
   ],
   "sizes": [
-    "33.7 GB (748 files)"
+    "37.8 GB (781 files)"
   ],
   "formats": [
     ".bdf",
@@ -64,5 +64,5 @@
     ".tsv",
     ".yml"
   ],
-  "source_hash": "fe387ad1c71d5e316925fc3af262f707ffd68d007eff8757475f7225dc318f33"
+  "source_hash": "b16f17d7dae04af5d8aaf31b64b6dfdffd3aa39a7239745de8c1604cc585c3af"
 }
