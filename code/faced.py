@@ -70,7 +70,9 @@ Original data collection team:
 DATASET_NAME = "FACED - Finer-grained Affective Computing EEG Dataset"
 
 from pathlib import Path
+import os
 import shutil
+import tempfile
 import datetime
 import warnings
 
@@ -81,6 +83,68 @@ from mne.io import read_raw_bdf
 from mne import read_annotations, Annotations
 from mne_bids import BIDSPath, write_raw_bids, make_dataset_description, make_report
 from openpyxl import load_workbook
+
+
+# The FACED source BDFs for 33 subjects (those marked Unit="uV" in
+# Recording_info.csv: 004, 005, 008-035, 058-060) have a mojibake in their
+# `physical_dimension` header field: the literal bytes "?V" instead of "uV",
+# because the µ character (U+00B5) was lost when the BDF header was written
+# in an ASCII-only context. MNE silently treats "?V" as raw Volts — it skips
+# the µV→V conversion — and returns values 10⁶ × too large without a warning.
+#
+# What the Recording_info.csv "Unit" column really means:
+#   The "Unit" column refers to the unit of the *upstream* raw recordings
+#   (before they were exported to BDF). It is NOT a description of the BDF
+#   on disk. The export pipeline already normalised every recording to the
+#   same µV-calibrated BDF format (phys_min=-375000, phys_max=+375000,
+#   dig_min/max=±8388607). All 123 BDFs store samples on the same numerical
+#   scale; the only inconsistency is the corrupted unit *label* in the 33
+#   affected files. So this column must NOT be used to drive any numerical
+#   scaling in this script — relying on it would double-multiply the V
+#   subjects by 1e6 and break them.
+#
+# We patch the unit label in a temporary copy of the file before MNE reads
+# it. The actual sample bytes are identical between original and patched;
+# only the 256-byte unit-label region of the BDF header changes. The 90
+# good-header subjects pass through unchanged.
+
+_BDF_BAD_UNIT_FIELD = b"?V      "
+_BDF_GOOD_UNIT_FIELD = b"uV      "
+
+
+def _maybe_patch_bdf_units(src_path: str) -> str:
+    """Return a path to a BDF where every "?V" physical_dimension field has
+    been replaced by "uV". If no "?V" is present, return the input unchanged.
+
+    The returned path is either the input itself (no-op) or a temporary copy
+    that the caller is responsible for deleting once it is done with it.
+    """
+    with open(src_path, "rb") as f:
+        general = f.read(256)
+        n_signals = int(general[252:256].strip())
+        # BDF per-channel header layout: label(16) + transducer(80) + ...
+        # The 8-byte physical_dimension block starts after both first sections.
+        pd_start = 256 + n_signals * (16 + 80)
+        f.seek(pd_start)
+        pd_block = f.read(n_signals * 8)
+
+    if _BDF_BAD_UNIT_FIELD not in pd_block:
+        return src_path
+
+    fixed_block = b"".join(
+        _BDF_GOOD_UNIT_FIELD
+        if pd_block[i : i + 8] == _BDF_BAD_UNIT_FIELD
+        else pd_block[i : i + 8]
+        for i in range(0, len(pd_block), 8)
+    )
+
+    fd, tmp_path = tempfile.mkstemp(suffix=".bdf", prefix="faced_uV_")
+    os.close(fd)
+    shutil.copy(src_path, tmp_path)
+    with open(tmp_path, "r+b") as g:
+        g.seek(pd_start)
+        g.write(fixed_block)
+    return tmp_path
 
 
 def _load_stimuli_info(source_root: Path) -> pd.DataFrame:
@@ -518,47 +582,53 @@ def main(
             print(f"Skipping {bids_path.fpath} (already exists)")
             continue
 
-        # Read EEG data
-        raw = read_raw_bdf(eeg_file_path, preload=False, verbose=False)
+        # See module-level docstring on _maybe_patch_bdf_units: 33 source BDFs
+        # have a corrupted unit label ("?V") that MNE cannot interpret. Patch
+        # the label in a tempfile before reading; the 90 good files are
+        # passed through unchanged. The tempfile is removed after write.
+        eeg_to_read = _maybe_patch_bdf_units(eeg_file_path)
+        try:
+            # Read EEG data
+            raw = read_raw_bdf(eeg_to_read, preload=False, verbose=False)
 
-        # Create annotations from evt.bdf events (sets raw.annotations with extras)
-        _create_annotations_from_evt(
-            raw, Path(evt_file_path), source_root, subject_id, video_meta
-        )
-
-        # Get subject info
-        if subject_id in subject_info_map:
-            info = subject_info_map[subject_id]
-
-            # Set subject info
-            gender_map = {"M": 1, "F": 2}
-            sex = gender_map.get(info["gender"], 0)
-
-            # Calculate birth date from age and recording date
-            # Use a default recording date of 2023-01-01 for privacy
-            recording_date = datetime.date(2023, 1, 1)
-            birth_date = recording_date - datetime.timedelta(days=info["age"] * 365.25)
-
-            raw.info["subject_info"] = {
-                "his_id": f"sub{subject_id}",
-                "birthday": birth_date,
-                "sex": int(sex),
-            }
-            raw.set_meas_date(
-                datetime.datetime(2023, 1, 1, tzinfo=datetime.timezone.utc)
+            # Create annotations from evt.bdf events (sets raw.annotations with extras)
+            _create_annotations_from_evt(
+                raw, Path(evt_file_path), source_root, subject_id, video_meta
             )
 
-        # Note: Unit conversion handled appropriately by MNE-BIDS based on the data units
-        # Some recordings in the dataset are in V, others in uV - MNE handles this properly
+            # Get subject info
+            if subject_id in subject_info_map:
+                info = subject_info_map[subject_id]
 
-        # Write to BIDS - annotations are automatically exported to events.tsv
-        write_raw_bids(
-            raw,
-            bids_path,
-            overwrite=True,
-            verbose=False,
-        )
-        print(f"Converted: {bids_path.fpath}")
+                # Set subject info
+                gender_map = {"M": 1, "F": 2}
+                sex = gender_map.get(info["gender"], 0)
+
+                # Calculate birth date from age and recording date
+                # Use a default recording date of 2023-01-01 for privacy
+                recording_date = datetime.date(2023, 1, 1)
+                birth_date = recording_date - datetime.timedelta(days=info["age"] * 365.25)
+
+                raw.info["subject_info"] = {
+                    "his_id": f"sub{subject_id}",
+                    "birthday": birth_date,
+                    "sex": int(sex),
+                }
+                raw.set_meas_date(
+                    datetime.datetime(2023, 1, 1, tzinfo=datetime.timezone.utc)
+                )
+
+            # Write to BIDS - annotations are automatically exported to events.tsv
+            write_raw_bids(
+                raw,
+                bids_path,
+                overwrite=True,
+                verbose=False,
+            )
+            print(f"Converted: {bids_path.fpath}")
+        finally:
+            if eeg_to_read != eeg_file_path:
+                os.unlink(eeg_to_read)
 
     _finalize_dataset(bids_root, overwrite=overwrite)
 
