@@ -2,8 +2,8 @@
   "version": "2.0",
   "pipeline_stage": "validated",
   "title": "FACED - Finer-grained Affective Computing EEG Dataset",
-  "description": "FACED is a comprehensive EEG dataset containing scalp recordings from 123 healthy participants viewing 28 emotion-eliciting video clips designed to evoke nine distinct emotion categories. Participants provided detailed self-reported ratings across 12 dimensions including eight emotions, arousal, valence, liking, and familiarity. The dataset facilitates cross-subject affective computing research and development of EEG-based emotion recognition algorithms for real-world applications.",
-  "methods_description": "EEG was recorded from 123 participants (75 female, ages 17-38) using a 32-channel biosignal recording system positioned according to the International 10-20 system, sampled at either 1000 Hz (92 subjects) or 250 Hz (31 subjects). Participants viewed 28 video clips (30-129 seconds duration) designed to target nine emotion categories (anger, disgust, fear, sadness, neutral, amusement, inspiration, joy, tenderness) presented in randomized blocks with arithmetic problems between blocks. After each video, participants rated their emotional response on 12 continuous 0-7 scales.",
+  "description": "The Finer-grained Affective Computing EEG Dataset (FACED) contains 32-channel scalp EEG from 123 healthy participants who watched 28 emotion-eliciting video clips targeting nine emotion categories (four negative, four positive, and neutral). Participants gave self-reported ratings on 12 dimensions, including discrete emotions, valence, arousal, liking, and familiarity. The dataset supports cross-subject affective computing and the development of EEG-based emotion recognition algorithms. This version is converted to BIDS with events annotated by video and emotion labels.",
+  "methods_description": "Participants sat 60 cm from a 22-inch LCD monitor and completed trials of a 5-second fixation cross, a video clip (roughly 30-130 s), and a 12-item self-report rating on a 0-7 scale, followed by at least 30 s of rest. Videos were shown in blocks of positive, negative, and neutral clips, with arithmetic problems between blocks to reduce carryover. EEG was recorded with a 32-channel Biosemi system placed according to the 10-20 system, sampled at 1000 Hz (92 subjects) or 250 Hz (31 subjects).",
   "license": "CC-BY-4.0",
   "dataset_type": "derivative",
   "authors": {
@@ -16,26 +16,33 @@
       "term": "EEG"
     },
     {
-      "term": "emotion recognition"
-    },
-    {
       "term": "affective computing"
     },
     {
-      "term": "video-induced emotions"
+      "term": "emotion recognition"
     },
     {
-      "term": "self-report ratings"
+      "term": "emotion elicitation"
     },
     {
-      "term": "scalp electroencephalography"
+      "term": "video stimuli"
+    },
+    {
+      "term": "Emotions",
+      "subject_scheme": "MeSH",
+      "value_uri": "http://id.nlm.nih.gov/mesh/D004644"
+    },
+    {
+      "term": "Electroencephalography",
+      "subject_scheme": "MeSH",
+      "value_uri": "http://id.nlm.nih.gov/mesh/D004569"
     }
   ],
   "related_identifiers": [
     {
       "identifier": "10.1038/s41597-023-02650-w",
       "identifier_type": "DOI",
-      "relation_type": "References"
+      "relation_type": "IsDescribedBy"
     },
     {
       "identifier": "https://github.com/nemarDatasets/nm000112",
@@ -43,9 +50,14 @@
       "relation_type": "IsDescribedBy"
     },
     {
-      "identifier": "https://nemar.org/dataexplorer/detail?dataset_id=nm000112",
+      "identifier": "https://nemar.org/dataset/nm000112",
       "identifier_type": "URL",
       "relation_type": "IsDescribedBy"
+    },
+    {
+      "identifier": "10.21105/joss.01896",
+      "identifier_type": "DOI",
+      "relation_type": "References"
     }
   ],
   "resource_type_general": "Dataset",
@@ -54,7 +66,7 @@
     "eeg"
   ],
   "sizes": [
-    "37.8 GB (781 files)"
+    "35.22 GB (781 files)"
   ],
   "formats": [
     ".bdf",
