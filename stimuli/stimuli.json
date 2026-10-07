@@ -1,0 +1,28 @@
+{
+  "stim_id": {
+    "Description": "Video index 1-28 (trigger value); equals video_index in the events."
+  },
+  "source_title": {
+    "Description": "Source film (Chen et al. 2023, Supplementary Table S1; same string as trial_type)."
+  },
+  "source_database": {
+    "Description": "Clip database the clip was taken from (Table S1): DCEF, THU-EP, FilmStim or PED; n/a where none is given."
+  },
+  "targeted_emotion": {
+    "Description": "Targeted emotion (Table S1); n/a for neutral clips."
+  },
+  "targeted_valence": {
+    "Description": "Targeted valence (Table S1)."
+  },
+  "table_s1_duration_s": {
+    "Description": "Clip duration given in Table S1.",
+    "Units": "s"
+  },
+  "presented_duration_s": {
+    "Description": "Median over 123 participants of the video span in the events (video index + 101 onset to 102 offset).",
+    "Units": "s"
+  },
+  "rights": {
+    "Description": "Rights note: the clips are excerpts of third-party films and are not part of this dataset."
+  }
+}

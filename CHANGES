@@ -1,2 +1,7 @@
+Metadata update 2026-10-08
+  - Corrected the dataset authors (dataset_description Authors, README citation, data collection team and report line) to the authors of the data descriptor doi:10.1038/s41597-023-02650-w: Chen, Wang, Huang, Hu, Shen, Zhang (Sci Data 10, 740, 2023; Crossref record). The previous names and article number (809) did not match that DOI.
+  - Added stimuli/stimuli.tsv and stimuli.json (28 clips: film, database, targeted emotion, durations); no media added.
+  - README: section 'Stimuli' (presented durations, two versions of clip 22, latency in 12 participants, five clips located in their sources).
+  - dataset_description.json: GeneratedBy entry for this enrichment.
 
 2026-10-07: privacy correction. Identification fields in recording file headers were removed in place from v1.0.0 to v1.1.3. Version numbers and DOIs are unchanged. See .nemar/corrections.jsonl.

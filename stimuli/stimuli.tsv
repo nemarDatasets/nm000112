@@ -1,0 +1,29 @@
+stim_id	source_title	source_database	targeted_emotion	targeted_valence	table_s1_duration_s	presented_duration_s	rights
+1	The Tokyo Trial	DCEF	Anger	Negative	81	81.138	third-party (commercial film); not included
+2	Documentary about the Nanjing Massacre	THU-EP	Anger	Negative	64	63.941	third-party (commercial film); not included
+3	City of Life and Death	DCEF	Anger	Negative	73	73.214	third-party (commercial film); not included
+4	Trainspotting	FilmStim	Disgust	Negative	79	78.646	third-party (commercial film); not included
+5	Indiana Jones and the Last Crusade	FilmStim	Disgust	Negative	69	69.383	third-party (commercial film); not included
+6	Hellraiser	FilmStim	Disgust	Negative	91	90.547	third-party (commercial film); not included
+7	The Shining	FilmStim	Fear	Negative	56	56.085	third-party (commercial film); not included
+8	The Shining	n/a	Fear	Negative	60	60.265	third-party (commercial film); not included
+9	The Exorcist	FilmStim	Fear	Negative	106	105.804	third-party (commercial film); not included
+10	In Bruges	PED	Sadness	Negative	45	45.108	third-party (commercial film); not included
+11	Departures	PED	Sadness	Negative	60	60.156	third-party (commercial film); not included
+12	Gangs of New York	PED	Sadness	Negative	82	82.048	third-party (commercial film); not included
+13	Blue	FilmStim	n/a	Neutral	35	35.099	third-party (commercial film); not included
+14	Blue	FilmStim	n/a	Neutral	44	44.319	third-party (commercial film); not included
+15	Blue	FilmStim	n/a	Neutral	39	38.934	third-party (commercial film); not included
+16	Blue	FilmStim	n/a	Neutral	43	43.065	third-party (commercial film); not included
+17	Modern Times	PED	Amusement	Positive	56	55.917	third-party (commercial film); not included
+18	Minions	PED	Amusement	Positive	70	69.707	third-party (commercial film); not included
+19	Mr. Bean	PED	Amusement	Positive	73	73.268	third-party (commercial film); not included
+20	Forrest Gump	PED	Inspiration	Positive	129	129.118	third-party (commercial film); not included
+21	The Theory of Everything	PED	Inspiration	Positive	77	77.118	third-party (commercial film); not included
+22	The Shawshank Redemption	PED	Inspiration	Positive	76	75.80 (sub-036 to sub-060: 83.92)	third-party (commercial film); not included
+23	My Neighbor Totoro	PED	Joy	Positive	34	34.13	third-party (commercial film); not included
+24	Night at the Museum Ⅲ	PED	Joy	Positive	37	37.259	third-party (commercial film); not included
+25	Harry Potter Ⅰ	PED	Joy	Positive	68	67.632	third-party (commercial film); not included
+26	The Pursuit of Happiness	PED	Tenderness	Positive	63	63.123	third-party (commercial film); not included
+27	Juno	PED	Tenderness	Positive	54	54.161	third-party (commercial film); not included
+28	Sex and the City Ⅱ	PED	Tenderness	Positive	77	77.475	third-party (commercial film); not included
