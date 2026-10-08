@@ -1,29 +1,29 @@
-stim_id	source_title	source_database	targeted_emotion	targeted_valence	table_s1_duration_s	presented_duration_s	rights
-1	The Tokyo Trial	DCEF	Anger	Negative	81	81.138	third-party (commercial film); not included
-2	Documentary about the Nanjing Massacre	THU-EP	Anger	Negative	64	63.941	third-party (commercial film); not included
-3	City of Life and Death	DCEF	Anger	Negative	73	73.214	third-party (commercial film); not included
-4	Trainspotting	FilmStim	Disgust	Negative	79	78.646	third-party (commercial film); not included
-5	Indiana Jones and the Last Crusade	FilmStim	Disgust	Negative	69	69.383	third-party (commercial film); not included
-6	Hellraiser	FilmStim	Disgust	Negative	91	90.547	third-party (commercial film); not included
-7	The Shining	FilmStim	Fear	Negative	56	56.085	third-party (commercial film); not included
-8	The Shining	n/a	Fear	Negative	60	60.265	third-party (commercial film); not included
-9	The Exorcist	FilmStim	Fear	Negative	106	105.804	third-party (commercial film); not included
-10	In Bruges	PED	Sadness	Negative	45	45.108	third-party (commercial film); not included
-11	Departures	PED	Sadness	Negative	60	60.156	third-party (commercial film); not included
-12	Gangs of New York	PED	Sadness	Negative	82	82.048	third-party (commercial film); not included
-13	Blue	FilmStim	n/a	Neutral	35	35.099	third-party (commercial film); not included
-14	Blue	FilmStim	n/a	Neutral	44	44.319	third-party (commercial film); not included
-15	Blue	FilmStim	n/a	Neutral	39	38.934	third-party (commercial film); not included
-16	Blue	FilmStim	n/a	Neutral	43	43.065	third-party (commercial film); not included
-17	Modern Times	PED	Amusement	Positive	56	55.917	third-party (commercial film); not included
-18	Minions	PED	Amusement	Positive	70	69.707	third-party (commercial film); not included
-19	Mr. Bean	PED	Amusement	Positive	73	73.268	third-party (commercial film); not included
-20	Forrest Gump	PED	Inspiration	Positive	129	129.118	third-party (commercial film); not included
-21	The Theory of Everything	PED	Inspiration	Positive	77	77.118	third-party (commercial film); not included
-22	The Shawshank Redemption	PED	Inspiration	Positive	76	75.80 (sub-036 to sub-060: 83.92)	third-party (commercial film); not included
-23	My Neighbor Totoro	PED	Joy	Positive	34	34.13	third-party (commercial film); not included
-24	Night at the Museum Ⅲ	PED	Joy	Positive	37	37.259	third-party (commercial film); not included
-25	Harry Potter Ⅰ	PED	Joy	Positive	68	67.632	third-party (commercial film); not included
-26	The Pursuit of Happiness	PED	Tenderness	Positive	63	63.123	third-party (commercial film); not included
-27	Juno	PED	Tenderness	Positive	54	54.161	third-party (commercial film); not included
-28	Sex and the City Ⅱ	PED	Tenderness	Positive	77	77.475	third-party (commercial film); not included
+stim_id	source_title	source_database	database_clip	database_timecode	targeted_emotion	targeted_valence	table_s1_duration_s	presented_duration_s	rights
+1	The Tokyo Trial	DCEF	DCEF (Ge et al. 2018, Cognition and Emotion, doi:10.1080/02699931.2018.1530197; Figshare 10.6084/m9.figshare.7177595), The Tokyo Trial, 81 s	00:52:06-00:53:27	Anger	Negative	81	81.138	third-party (commercial film); not included
+2	Documentary about the Nanjing Massacre	THU-EP	n/a	n/a	Anger	Negative	64	63.941	third-party (commercial film); not included
+3	City of Life and Death	DCEF	DCEF (Ge et al. 2018, Cognition and Emotion, doi:10.1080/02699931.2018.1530197; Figshare 10.6084/m9.figshare.7177595), City of Life and Death, 73 s	00:36:23-00:37:36	Anger	Negative	73	73.214	third-party (commercial film); not included
+4	Trainspotting	FilmStim	n/a	n/a	Disgust	Negative	79	78.646	third-party (commercial film); not included
+5	Indiana Jones and the Last Crusade	FilmStim	n/a	n/a	Disgust	Negative	69	69.383	third-party (commercial film); not included
+6	Hellraiser	FilmStim	n/a	n/a	Disgust	Negative	91	90.547	third-party (commercial film); not included
+7	The Shining	FilmStim	n/a	n/a	Fear	Negative	56	56.085	third-party (commercial film); not included
+8	The Shining	n/a	n/a	n/a	Fear	Negative	60	60.265	third-party (commercial film); not included
+9	The Exorcist	FilmStim	n/a	n/a	Fear	Negative	106	105.804	third-party (commercial film); not included
+10	In Bruges	PED	PED (Hu et al. 2017, Front. Hum. Neurosci. 11:26, Table 1) #36, 45 s	0:24:47-0:25:32	Sadness	Negative	45	45.108	third-party (commercial film); not included
+11	Departures	PED	PED (Hu et al. 2017, Front. Hum. Neurosci. 11:26, Table 1) #35, 60 s	0:55:50-0:56:50	Sadness	Negative	60	60.156	third-party (commercial film); not included
+12	Gangs of New York	PED	n/a	n/a	Sadness	Negative	82	82.048	third-party (commercial film); not included
+13	Blue	FilmStim	n/a	n/a	n/a	Neutral	35	35.099	third-party (commercial film); not included
+14	Blue	FilmStim	n/a	n/a	n/a	Neutral	44	44.319	third-party (commercial film); not included
+15	Blue	FilmStim	n/a	n/a	n/a	Neutral	39	38.934	third-party (commercial film); not included
+16	Blue	FilmStim	n/a	n/a	n/a	Neutral	43	43.065	third-party (commercial film); not included
+17	Modern Times	PED	n/a	n/a	Amusement	Positive	56	55.917	third-party (commercial film); not included
+18	Minions	PED	n/a	n/a	Amusement	Positive	70	69.707	third-party (commercial film); not included
+19	Mr. Bean	PED	PED (Hu et al. 2017, Front. Hum. Neurosci. 11:26, Table 1) #28, 73 s	0:08:40-0:09:53	Amusement	Positive	73	73.268	third-party (commercial film); not included
+20	Forrest Gump	PED	PED (Hu et al. 2017, Front. Hum. Neurosci. 11:26, Table 1) #7, 129 s	1:55:33-1:57:42	Inspiration	Positive	129	129.118	third-party (commercial film); not included
+21	The Theory of Everything	PED	PED (Hu et al. 2017, Front. Hum. Neurosci. 11:26, Table 1) #17, 77 s	1:51:09-1:52:26	Inspiration	Positive	77	77.118	third-party (commercial film); not included
+22	The Shawshank Redemption	PED	n/a	n/a	Inspiration	Positive	76	75.80 (sub-036 to sub-060: 83.92)	third-party (commercial film); not included
+23	My Neighbor Totoro	PED	n/a	n/a	Joy	Positive	34	34.13	third-party (commercial film); not included
+24	Night at the Museum Ⅲ	PED	PED (Hu et al. 2017, Front. Hum. Neurosci. 11:26, Table 1) #4, 37 s	0:10:05-0:10:42	Joy	Positive	37	37.259	third-party (commercial film); not included
+25	Harry Potter Ⅰ	PED	n/a	n/a	Joy	Positive	68	67.632	third-party (commercial film); not included
+26	The Pursuit of Happiness	PED	PED (Hu et al. 2017, Front. Hum. Neurosci. 11:26, Table 1) #10, 63 s	1:32:33-1:33:36	Tenderness	Positive	63	63.123	third-party (commercial film); not included
+27	Juno	PED	n/a	n/a	Tenderness	Positive	54	54.161	third-party (commercial film); not included
+28	Sex and the City Ⅱ	PED	PED (Hu et al. 2017, Front. Hum. Neurosci. 11:26, Table 1) #30, 77 s	2:15:57-2:17:14	Tenderness	Positive	77	77.475	third-party (commercial film); not included

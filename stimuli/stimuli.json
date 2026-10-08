@@ -8,6 +8,12 @@
   "source_database": {
     "Description": "Clip database the clip was taken from (Table S1): DCEF, THU-EP, FilmStim or PED; n/a where none is given."
   },
+  "database_clip": {
+    "Description": "The clip of the source database that this clip corresponds to: listed only where Table S1 names the database and that database has exactly one clip of the same film with the same duration in whole seconds (n/a otherwise)."
+  },
+  "database_timecode": {
+    "Description": "In-out timecode (h:mm:ss) that the source database publishes for that clip. It refers to the database authors' copy of the film; PED notes that times differ between film versions. n/a where database_clip is n/a."
+  },
   "targeted_emotion": {
     "Description": "Targeted emotion (Table S1); n/a for neutral clips."
   },

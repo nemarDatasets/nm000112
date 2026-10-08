@@ -94,12 +94,22 @@ Facts from the events (video index + 101 onset to 102 offset, 123 x 28 spans):
 - 12 participants (sub-002, 008, 009, 028, 061-063, 071-075) have every span about 0.28 s longer (a playback/trigger latency,
   not different files).
 
-Locating the clips in their source films: the exact trims are not published (the clip files are not on Synapse). Five
+Source databases (Table S1; column `source_database`): DCEF = Ge et al. 2018 (#1, #3), THU-EP = Hu et al. 2022 (#2),
+FilmStim = Schaefer et al. 2010 (#4-7, #9, #13-16), PED = Hu et al. 2017/2019 (#10-12, #17-28); #8 has none.
+DCEF and PED publish in/out timecodes for their clips. `database_clip` and `database_timecode` give them for the 10 clips
+whose database has exactly one clip of the same film and the same whole-second duration (#1, #3, #10, #11, #19, #20, #21,
+#24, #26, #28). Not listed: #23 (PED has two 34-s Totoro clips), #12, #17, #18, #25 (1 s apart), #22 (PED 83 s; FACED shows
+75.80 s or 83.92 s), #27 (the PED Juno row is internally inconsistent). The timecodes are in the database authors' film
+copies; PED notes they differ between versions. For #11 (Departures) both published points fall on shot changes, 0.10 s
+and 0.53 s later, in a film-speed copy of the film; the span between the two shot changes is 60.44 s, while 60.15 s was
+presented.
+
+Locating the clips in their source films: the exact trims are not published (the clip files are not on Synapse). Four
 clips could be placed with two independent anchors (likely, not verified against FACED's own files):
 - 4 Trainspotting: the FilmStim clip (Schaefer et al. 2010), file En/35 from 0.42 to 79.10 s.
 - 6 Hellraiser: the whole FilmStim file HiRes/57 (90.48 s at 25 fps; FACED 90.55 s).
 - 9 The Exorcist: the FilmStim clip En/24 (104.94 s); FACED's clip is 0.86 s longer, start uncertain by about 1 s.
-- 22 The Shawshank Redemption: starts where Andy enters the pipe, 3.9 s before the PED timecode 1:59:06; both versions
-  (75.80 s and 83.92 s) end on a shot change from that start.
 - 23 My Neighbor Totoro: the girls exploring the new house, 31.8 s after the PED timecode 0:05:12.
-The other 23 clips are not located (18 candidate positions remain guesses and are not listed).
+Clip 22 (The Shawshank Redemption) is no longer listed: an earlier version of this section placed both versions at one
+start 3.9 s before the PED in point, but the 83.92-s version fits the PED clip better (it starts at the PED in point), so
+the start of the 75.80-s version is not established.
