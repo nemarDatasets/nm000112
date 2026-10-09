@@ -4,9 +4,12 @@
   "DatasetType": "derivative",
   "License": "CC-BY-4.0",
   "Authors": [
-    "Yisi Liu",
-    "Olga Sourina",
-    "Minh Khoa Nguyen"
+    "Jingjing Chen",
+    "Xiaobin Wang",
+    "Chen Huang",
+    "Xin Hu",
+    "Xinke Shen",
+    "Dan Zhang"
   ],
   "Acknowledgements": "Pierre Guetschel updated the data to BIDS format.",
   "ReferencesAndLinks": [
@@ -18,6 +21,11 @@
       "Name": "MNE-BIDS",
       "Version": "0.17.0",
       "CodeURL": "https://mne.tools/mne-bids/"
+    },
+    {
+      "Name": "NeuralBench video-stimulus metadata enrichment",
+      "Version": "2026-10-08",
+      "Description": "Metadata only, no media files: stimulus table (stimuli/stimuli.tsv), README section 'Stimuli' and the changes listed in CHANGES under 2026-10-08. Facts and sources are in the README section. Prepared by Bruno Aristimunha (NeuralBench video work); the videos stay with their rights holders."
     }
   ],
   "SourceDatasets": [
