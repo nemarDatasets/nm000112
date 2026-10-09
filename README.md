@@ -104,11 +104,27 @@ copies; PED notes they differ between versions. For #11 (Departures) both publis
 and 0.53 s later, in a film-speed copy of the film; the span between the two shot changes is 60.44 s, while 60.15 s was
 presented.
 
-Locating the clips in their source films: the exact trims are not published (the clip files are not on Synapse). Four
+FilmStim clips (added 2026-10-09; columns `database_clip`, `database_position`): FilmStim distributes its clip files at
+sites.uclouvain.be/ipsp/FilmStim (`En/<number>.mp4` = 25/24 film-speed versions of the PAL originals, `HiRes/<number>.mpeg`
+= PAL), and the Hugging Face dataset Eureka-Leo/Emotion.Intelligence (`level3/.../FilmStim/videos/<number>`) mirrors them
+byte for byte (five files compared; the LFS hashes of the other five equal the official files). `database_clip` names the
+FilmStim number / code, file and SHA-256 for #4-7, #9 and #13-15 (Table S1 film + FilmStim scene list; #16, a fourth Blue
+excerpt, has no FilmStim counterpart). The presented durations of #4, #5, #7 and #9 match the film-speed En files, not the
+PAL HiRes ones (4% shorter). `database_position` says where the presented clip lies inside the FilmStim file, from a
+frame-by-frame comparison of a cut of the same scene with the file: #4 Trainspotting 0.485-79.131 s of En/35 (both ends on
+shot changes), #5 Indiana Jones 28.629-98.031 s of En/31 (both ends on shot changes; the only pair of shot changes 69.4 s
+apart in the file), #6 Hellraiser the whole HiRes/57 (90.48 s; FACED 90.55 s). #7 The Shining: En/28 has three pairs of
+shot changes 56.1 s apart (9.9, 104.2, 207.4 s), so no position is given. #9 The Exorcist and #13-15 Blue: the FACED clips
+(105.8 / 35.1 / 44.3 / 38.9 s) are longer than the FilmStim files (104.9 / 16.2 / 40.2 / 25.3 s), so FACED cut them from
+the films, not from the FilmStim files; #9 starts at the same frame as En/24 (within 0.05 s), the Blue starts are not
+established. These positions are likely, not verified against FACED's own clip files.
+
+Locating the clips in their source films: the exact trims are not published (the clip files are not on Synapse). Five
 clips could be placed with two independent anchors (likely, not verified against FACED's own files):
-- 4 Trainspotting: the FilmStim clip (Schaefer et al. 2010), file En/35 from 0.42 to 79.10 s.
+- 4 Trainspotting: the FilmStim file En/35 from 0.485 to 79.131 s (see above).
+- 5 Indiana Jones and the Last Crusade: the FilmStim file En/31 from 28.629 to 98.031 s (see above).
 - 6 Hellraiser: the whole FilmStim file HiRes/57 (90.48 s at 25 fps; FACED 90.55 s).
-- 9 The Exorcist: the FilmStim clip En/24 (104.94 s); FACED's clip is 0.86 s longer, start uncertain by about 1 s.
+- 9 The Exorcist: starts where the FilmStim file En/24 (104.94 s) starts; FACED's clip is 0.86 s longer (cut from the film).
 - 23 My Neighbor Totoro: the girls exploring the new house, 31.8 s after the PED timecode 0:05:12.
 Clip 22 (The Shawshank Redemption) is no longer listed: an earlier version of this section placed both versions at one
 start 3.9 s before the PED in point, but the 83.92-s version fits the PED clip better (it starts at the PED in point), so
