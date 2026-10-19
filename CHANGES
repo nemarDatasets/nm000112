@@ -1,2 +1,14 @@
+1.1.4 2026-10-14
+  - Corrected the dataset authors (dataset_description Authors, README citation, data collection team and report line) to the authors of the data descriptor doi:10.1038/s41597-023-02650-w: Chen, Wang, Huang, Hu, Shen, Zhang (Sci Data 10, 740, 2023; Crossref record). The previous names and article number (809) did not match that DOI.
+  - Added stimuli/stimuli.tsv and stimuli.json (28 clips: film, database, targeted emotion, durations); no media added.
+  - README: section 'Stimuli' (presented durations, two versions of clip 22, latency in 12 participants, five clips located in their sources).
+  - dataset_description.json: GeneratedBy entry for this enrichment.
+  - stimuli.tsv: database_clip and database_timecode (DCEF/PED timecodes for the 10 clips that join their database unambiguously). README: source databases, the timecodes, the check of clip 11 in a film copy; clip 22 removed from the located clips.
+  - stimuli.tsv: database_clip for the eight FilmStim clips (FilmStim number / code, file, SHA-256 of the distributed file) and database_position (where the clip lies inside the FilmStim file: #4, #5, #6 likely; #7 three candidates; #9, #13-15 longer than the FilmStim files, cut from the films). README: FilmStim files and their public mirror, these positions.
+  - stimuli.tsv: clip 22's second duration moved out of presented_duration_s (now numeric, 75.80) into the new column presented_duration_alt_s (83.92, sub-036 to sub-060).
+  - dataset_description.json: SourceDatasets is the FACED data on Synapse (doi:10.7303/syn50614194), not the paper DOI,
+    which stays in ReferencesAndLinks. README citation: the data DOI and how it links to the paper (the paper's Data
+    Records name syn50614194; the Synapse wiki names the paper as its data descriptor).
+  - dataset_description.json: Version 1.1.3 -> 1.1.4.
 
 2026-10-07: privacy correction. Identification fields in recording file headers were removed in place from v1.0.0 to v1.1.3. Version numbers and DOIs are unchanged. See .nemar/corrections.jsonl.
