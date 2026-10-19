@@ -1,15 +1,23 @@
 {
   "version": "2.0",
-  "pipeline_stage": "validated",
+  "pipeline_stage": "enriched",
   "title": "FACED - Finer-grained Affective Computing EEG Dataset",
-  "description": "The Finer-grained Affective Computing EEG Dataset (FACED) contains 32-channel scalp EEG from 123 healthy participants who watched 28 emotion-eliciting video clips targeting nine emotion categories (four negative, four positive, and neutral). Participants gave self-reported ratings on 12 dimensions, including discrete emotions, valence, arousal, liking, and familiarity. The dataset supports cross-subject affective computing and the development of EEG-based emotion recognition algorithms. This version is converted to BIDS with events annotated by video and emotion labels.",
-  "methods_description": "Participants sat 60 cm from a 22-inch LCD monitor and completed trials of a 5-second fixation cross, a video clip (roughly 30-130 s), and a 12-item self-report rating on a 0-7 scale, followed by at least 30 s of rest. Videos were shown in blocks of positive, negative, and neutral clips, with arithmetic problems between blocks to reduce carryover. EEG was recorded with a 32-channel Biosemi system placed according to the 10-20 system, sampled at 1000 Hz (92 subjects) or 250 Hz (31 subjects).",
+  "description": "FACED is a scalp EEG dataset from 123 healthy participants who watched 28 emotion-eliciting video clips targeting nine emotion categories: four negative, four positive, and neutral. Participants gave self-reported ratings on 12 dimensions, including discrete emotions, valence, arousal, liking and familiarity. The dataset supports cross-subject affective computing research and the development of EEG-based emotion recognition algorithms. This BIDS version, converted by Pierre Guetschel, adds stimulus metadata and event annotations.",
+  "methods_description": "EEG was recorded from 32 channels placed according to the 10-20 system with a Biosemi system, sampled at 1000 Hz (92 subjects) or 250 Hz (31 subjects). Participants sat 60 cm from a 22-inch monitor. Each trial had a 5 s fixation cross, a video clip (typically 30-60 s; individual clips range from about 34 to 129 s), and a 12-item emotion rating. Blocks of clips were separated by arithmetic problems to reduce carryover effects. Raw BDF files were converted to BIDS with MNE-BIDS, and events were parsed from evt.bdf annotations.",
   "license": "CC-BY-4.0",
   "dataset_type": "derivative",
   "authors": {
     "Yisi Liu": {},
     "Olga Sourina": {},
-    "Minh Khoa Nguyen": {}
+    "Minh Khoa Nguyen": {},
+    "Jingjing Chen": {},
+    "Xiaobin Wang": {},
+    "Chen Huang": {},
+    "Xin Hu": {},
+    "Xinke Shen": {},
+    "Dan Zhang": {
+      "orcid": "0000-0002-7592-3200"
+    }
   },
   "keywords": [
     {
@@ -20,9 +28,6 @@
     },
     {
       "term": "emotion recognition"
-    },
-    {
-      "term": "emotion elicitation"
     },
     {
       "term": "video stimuli"
@@ -58,6 +63,11 @@
       "identifier": "10.21105/joss.01896",
       "identifier_type": "DOI",
       "relation_type": "References"
+    },
+    {
+      "identifier": "10.7303/syn50614194",
+      "identifier_type": "DOI",
+      "relation_type": "IsDerivedFrom"
     }
   ],
   "resource_type_general": "Dataset",
@@ -66,15 +76,16 @@
     "eeg"
   ],
   "sizes": [
-    "35.22 GB (781 files)"
+    "35.21 GB (161 files)"
   ],
   "formats": [
     ".bdf",
     ".json",
+    ".jsonl",
     ".md",
     ".py",
     ".tsv",
     ".yml"
   ],
-  "source_hash": "b16f17d7dae04af5d8aaf31b64b6dfdffd3aa39a7239745de8c1604cc585c3af"
+  "source_hash": "fc3503042499553afb8712cb7566d1b3089e5c06032faa9a6abf497f0063bbf2"
 }
